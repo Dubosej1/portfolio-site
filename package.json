@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Web Development Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dubosej1/portfolio-site.git"
+  },
+  "author": "Johnaven Dubose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dubosej1/portfolio-site/issues"
+  },
+  "homepage": "https://github.com/Dubosej1/portfolio-site#readme"
+}
