@@ -17,55 +17,53 @@
   <header id="header">
     <div class="nav">
       <span class="nav__logo">JD</span>
-      <span class="nav__linksContainer">
-        <a class="nav__link header" href="#header">Home</a>
-        <a class="nav__link about" href="#about">About</a>
-        <a class="nav__link projects" href="#projects">Projects</a>
-        <a class="nav__link contact" href="#contact">Contact</a>
-        <a class="nav__link" href="#resume">Resume</a>
+      <span class="nav__links-container">
+        <a class="nav__link link__headerheader" href="#header">Home</a>
+        <a class="nav__link link__about about" href="#about">About</a>
+        <a class="nav__link link__ projects projects" href="#projects">Projects</a>
+        <a class="nav__link link__contact contact" href="#contact">Contact</a>
+        <a class="nav__link link__resume resume" href="#resume">Resume</a>
       </span>
-      <img src="images/hamb-black.svg" class="mobileNav__img" alt="Mobile Navigation" />
+      <img src="images/hamb-black.svg" class="nav__btn btn__mobile-nav" alt="Mobile Navigation" />
     </div>
-    <div class="mobileNav">
-      <a class="mobileNav__link" href="#header">Home</a>
-      <a class="mobileNav__link" href="#about">About</a>
-      <a class="mobileNav__link" href="#projects">Projects</a>
-      <a class="mobileNav__link" href="#contact">Contact</a>
-      <a class="mobileNav__link" href="#resume">Resume</a>
+    <div class="mobile-nav">
+      <a class="mobile-nav__link" href="#header">Home</a>
+      <a class="mobile-nav__link" href="#about">About</a>
+      <a class="mobile-nav__link" href="#projects">Projects</a>
+      <a class="mobile-nav__link" href="#contact">Contact</a>
+      <a class="mobile-nav__link" href="#resume">Resume</a>
     </div>
-    <div class="headerContainer">
-      <div class="header__titleContainer">
-        <h1>
-          I am Johnaven Dubose<br />
-          I am a Web Developer
-        </h1>
+    <div class="header__container">
+      <div class="header__title-container">
+        <h1 class="header__title-1">I am Johnaven Dubose</h1>
+        <h1 class="header__title-2">I am a Web Developer</h1>
       </div>
-      <div class="header__buttonContainer">
+      <div class="header__link-container">
 
-        <a class="header__buttonLink" href="#projects">Recent Projects</a>
-        <a class="header__buttonLink" href="#about">More About Me</a>
+        <a class="header__link link__recent-projects" href="#projects">Recent Projects</a>
+        <a class="header__link link__about" href="#about">More About Me</a>
 
       </div>
     </div>
   </header>
   <main>
     <hr />
-    <section id="about" class="section">
-      <div class="about__titleContainer">
-        <h2>Personal Info</h2>
+    <section id="about" class="about section">
+      <div class="about__title-container">
+        <h2 class="about__title">Personal Info</h2>
       </div>
-      <div class="about__textContainer">
-        <h3>Placeholder Greeting</h3>
-        <p>
+      <div class="about__text-container">
+        <h3 class="about__greeting">Placeholder Greeting</h3>
+        <p class="about__text-content">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Consequat ac felis donec et odio pellentesque diam volutpat commodo.
           Quis enim lobortis scelerisque fermentum dui.
         </p>
       </div>
-      <div class="about__skillsContainer">
-        <h3>Skills</h3>
-        <ul class="about__skillsList">
+      <div class="about__skills-container">
+        <h3 class="about__skills-heading">Skills</h3>
+        <ul class="about__skills-list">
           <li class="about__skill">HTML 5</li>
           <li class="about__skill">CSS 3</li>
           <li class="about__skill">JavaScript</li>
@@ -74,21 +72,21 @@
         </ul>
       </div>
     </section>
-    <section id="projects" class="section">
-      <div class="projects__titleContainer">
-        <h2>Latest Projects</h2>
+    <section id="projects" class="projects section">
+      <div class="projects__title-container">
+        <h2 class="projects__title">Latest Projects</h2>
       </div>
-      <div class="projects__cardContainer">
+      <div class="projects__card-container">
         <div class="projects__card">
-          <img src="http://via.placeholder.com/580x435" />
-          <h3>Bingo</h3>
-          <ul class="projects__skillsList">
+          <img class="projects__card-img" src="http://via.placeholder.com/580x435" />
+          <h3 class="projects__card-title">Bingo</h3>
+          <ul class="projects__skills-list">
             <li class="projects__skill">HTML 5</li>
             <li class="projects__skill">CSS 3</li>
             <li class="projects__skill">SASS</li>
             <li class="projects__skill">Javascript ES6</li>
           </ul>
-          <p>
+          <p class="projects__card-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
             viverra tellus in hac. Luctus venenatis lectus magna fringilla
@@ -96,57 +94,59 @@
             consectetur libero id faucibus nisl. At in tellus integer feugiat
             scelerisque.
           </p>
-          <a class="projects__btnLive" href="#">View Live</a>
-          <a class="projects__btnCode" href="#">View Code</a>
+          <a class="projects__btn-live btn__live" href="#">View Live</a>
+          <a class="projects__btn-code btn__code" href="#">View Code</a>
         </div>
-        <div class="projects__card">
-          <img src="http://via.placeholder.com/580x435" />
-          <h3>Project Placeholder</h3>
-          <ul class="projects__skillsList">
-            <li class="projects__skill">HTML 5</li>
-            <li class="projects__skill">CSS 3</li>
-            <li class="projects__skill">SASS</li>
-            <li class="projects__skill">Javascript ES6</li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
-            viverra tellus in hac. Luctus venenatis lectus magna fringilla
-            urna porttitor rhoncus. Neque laoreet suspendisse interdum
-            consectetur libero id faucibus nisl. At in tellus integer feugiat
-            scelerisque.
-          </p>
-          <a class="projects__btnLive" href="#">View Live</a>
-          <a class="projects__btnCode" href="#">View Code</a>
-        </div>
+        <div class="projects__card-container">
+          <div class="projects__card">
+            <img class="projects__card-img" src="http://via.placeholder.com/580x435" />
+            <h3 class="projects__card-title">Bingo</h3>
+            <ul class="projects__skills-list">
+              <li class="projects__skill">HTML 5</li>
+              <li class="projects__skill">CSS 3</li>
+              <li class="projects__skill">SASS</li>
+              <li class="projects__skill">Javascript ES6</li>
+            </ul>
+            <p class="projects__card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
+              viverra tellus in hac. Luctus venenatis lectus magna fringilla
+              urna porttitor rhoncus. Neque laoreet suspendisse interdum
+              consectetur libero id faucibus nisl. At in tellus integer feugiat
+              scelerisque.
+            </p>
+            <a class="projects__btn-live btn__live" href="#">View Live</a>
+            <a class="projects__btn-code btn__code" href="#">View Code</a>
+          </div>
 
-        <div class="projects__card">
-          <img src="http://via.placeholder.com/580x435" />
-          <h3>Project Placeholder</h3>
-          <ul class="projects__skillsList">
-            <li class="projects__skill">HTML 5</li>
-            <li class="projects__skill">CSS 3</li>
-            <li class="projects__skill">SASS</li>
-            <li class="projects__skill">Javascript ES6</li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
-            viverra tellus in hac. Luctus venenatis lectus magna fringilla
-            urna porttitor rhoncus. Neque laoreet suspendisse interdum
-            consectetur libero id faucibus nisl. At in tellus integer feugiat
-            scelerisque.
-          </p>
-          <a class="projects__btnLive" href="#">View Live</a>
-          <a class="projects__btnCode" href="#">View Code</a>
-        </div>
+          <div class="projects__card-container">
+            <div class="projects__card">
+              <img class="projects__card-img" src="http://via.placeholder.com/580x435" />
+              <h3 class="projects__card-title">Bingo</h3>
+              <ul class="projects__skills-list">
+                <li class="projects__skill">HTML 5</li>
+                <li class="projects__skill">CSS 3</li>
+                <li class="projects__skill">SASS</li>
+                <li class="projects__skill">Javascript ES6</li>
+              </ul>
+              <p class="projects__card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed
+                viverra tellus in hac. Luctus venenatis lectus magna fringilla
+                urna porttitor rhoncus. Neque laoreet suspendisse interdum
+                consectetur libero id faucibus nisl. At in tellus integer feugiat
+                scelerisque.
+              </p>
+              <a class="projects__btn-live btn__live" href="#">View Live</a>
+              <a class="projects__btn-code btn__code" href="#">View Code</a>
+            </div>
       </div>
     </section>
-    <footer id="contact" class="section">
-      <div class="contact__titleContainer">
+    <footer id="contact" class="contact section">
+      <div class="contact__title-container">
         <h2 class="contact__title">Contact Me</h2>
       </div>
-      <div class="contact__linksContainer">
+      <div class="contact__links-container">
         <img src="images/envelope-b.svg" class="contact__link" alt="Email Link" />
         <img src="images/github-b.svg" class="contact__link" alt="GitHub" />
         <img src="images/twitter-b.svg" class="contact__link" alt="Twitter" />
