@@ -235,20 +235,6 @@ body {
 
     &__skill {
         @include skill-style(0 1.5rem 1.5rem 0);
-        // display: inline-block;
-
-        // background-color: #bfb188;
-        // color: #333;
-
-        // //font-size: 12px (parent = 16px)
-        // font-size: 0.75em;
-        // font-weight: 700;
-        // text-transform: uppercase;
-        // letter-spacing: 0.3rem;
-
-        // padding: 1rem 1.5rem;
-        // margin-right: 1.5rem;
-        // margin-bottom: 1.5rem;
     }
 }
 
@@ -310,17 +296,6 @@ body {
 
     &__skill {
         @include skill-style(1rem);
-
-        // background-color: #bfb188;
-        // color: #333;
-        // font-weight: 700;
-        // display: inline-block;
-        // padding: 1rem 1.5rem;
-        // text-transform: uppercase;
-        // font-size: 0.75rem;
-        // letter-spacing: 0.3rem;
-
-        // margin: 1rem 1rem;
     }
 
     &__btn {
@@ -330,6 +305,37 @@ body {
 
         &-code {
             @include project-btn-style(0 0 0 2rem);
+        }
+    }
+}
+
+////////// Contact Section //////////@at-root
+.contact {
+    @include flex-define(column,flex-start ,center );
+
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(13, 13, 13, 0.9),
+        rgba(13, 13, 13, 0.9)
+      ),
+      url("images/bg-milky-way-footer.jpg");
+
+    &__title {
+        @include h2-title-style;
+        color: white;
+
+        &-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+    }
+
+    &__link {
+        width: 5rem;
+        margin: 0.5rem 3rem;
+
+        &s-container {
+            margin: 2rem 0;
         }
     }
 }
