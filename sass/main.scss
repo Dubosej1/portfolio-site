@@ -6,15 +6,60 @@
   
 html {
     font-size: 62.5%;
+    //1rem = 10px @ 62.5% Client's default
     scroll-behavior: smooth;
 }
   
 body {
     font-family: "Average", serif;
     font-weight: 400;
+    //1em = 16px throughout app, assuming a child don't inherent parent's font-size
     font-size: 1.6em;
     line-height: 1.7;
     color: #5f5f5f;
+}
+
+.nav {
+    // display: block;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(13, 13, 13, 0.2);
+    /* overflow: hidden; */
+    z-index: 2;
+
+    &__logo {
+        font-family: "Istok Web";
+        font-weight: 700;
+        color: #b875bf;
+        font-size: 2.5em;
+        background-color: black;
+        padding: 1rem;
+        margin-left: 5rem;
+        float: left;
+        z-index: 2;
+    }
+
+    &__links-container {
+        float: right;
+        padding-top: 1rem;
+    }
+
+    &__link {
+        font-family: "Istok Web";
+        font-weight: 700;
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 1.4rem 1.6rem;
+        text-decoration: none;
+        //Pixel font-size: 14.4px
+        font-size: 0.9em;
+    }
+}
+
+.nav__link:hover,
+.mobileNav_link:hover {
+  color: #b875bf;
 }
 
 #header {
