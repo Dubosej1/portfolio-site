@@ -1,135 +1,103 @@
-("use strict");
 
-//////////Selectors//////////
+//Adds sticky navigation bar when user scrolls past the header section
+const stickyNavObserver = {
+    nav: document.querySelector(".nav"),
+    navLogo: document.querySelector(".nav__logo"),
+    header: document.querySelector("#header"),
+    obsOptions: { root: null, threshold: 0 },
 
-const header = document.querySelector("#header");
-const aboutSection = document.querySelector("#about");
-const projectsSection = document.querySelector("#projects");
-const contactSection = document.querySelector("#contact");
-const homeLink = document.querySelector(".header");
-const aboutLink = document.querySelector(".about");
-const projectsLink = document.querySelector(".projects");
-const contactLink = document.querySelector(".contact");
-const nav = document.querySelector(".nav");
-const navLogo = document.querySelector(".nav__logo");
-const mobileNav = document.querySelector(".mobileNav");
-const mobileNavBtn = document.querySelector(".mobileNav__img");
-const mobileNavLinks = Array.from(
-  document.querySelectorAll(".mobileNav__link")
-);
+    //Factors the Nav Logo Height into the margins of the viewport, when the intersection
+    //observer calculates
+    get rootMargin () {
+        let navHeight = this.navLogo.getBoundingClientRect().height;
+        return `-${navHeight}px`;
+    },
 
-console.log(mobileNavLinks);
+    obsCallback (entries) {
+        const [entry] = entries;
 
-//////////Global Variables//////////
+        //toggles adding the sticky class to the nav bar
+        if (!entry.isIntersecting) this.nav.classList.add("sticky");
+        else this.nav.classList.remove("sticky");
+    },
 
-let obsOptions = { root: null, threshold: 0 };
+    executeObserver() {
+        this.obsOptions.rootMargin = this.rootMargin;
 
-//////////Sticky Navigation Bar//////////
+        const stickyNavObserver = new IntersectionObserver(this.obsCallback, this.obsOptions);
 
-function stickyNav(obsOptions) {
-  const navHeight = navLogo.getBoundingClientRect().height;
-  obsOptions.rootMargin = `-${navHeight}px`;
-
-  const stickyNavCB = function (entries) {
-    const [entry] = entries;
-
-    if (!entry.isIntersecting) nav.classList.add("sticky");
-    else nav.classList.remove("sticky");
-  };
-
-  const stickyNavObserver = new IntersectionObserver(stickyNavCB, obsOptions);
-
-  stickyNavObserver.observe(header);
+        stickyNavObserver.observe(header);
+    },
 }
 
-stickyNav(obsOptions);
+//Add functionality for the Mobile Nav Btn to toggle displaying the mobile nav menu
+const mobileNavMenu = {
+    menu: document.querySelector(".mobileNav"),
+    menuToggleBtn: document.querySelector(".btn__mobile-nav"),
+    navLinks: Array.from(document.querySelectorAll(".mobile-nav__link")),
 
-//////////Mobile Nav Menu Functionality//////////
+    displayMenu (e) {
+        this.toggleDisplayMenu(true);
+        this.menuToggleBtn.removeEventListener("click", this.displayMenu);
+        this.menuToggleBtn.addEventListener("click", this.removeMenu);
+    },
 
-function displayNavMenu() {
-  mobileNav.style.display = "block";
-  mobileNavBtn.removeEventListener("click", displayNavMenu);
-  mobileNavBtn.addEventListener("click", removeNavMenu);
+    removeMenu(e) {
+        this.toggleDisplayMenu(false);
+        this.menuToggleBtn.removeEventListener("click", this.removeMenu);
+        this.menuToggleBtn.addEventListener("click", this.displayMenu);
+    },
+
+    toggleDisplayMenu(toggle) {
+        toggle ? this.menu.classList.remove(`display-none`) : this.menu.classList.add(`display-none`);
+    },
+
+    //Adds Event Listeners so that when a mobile nav link is clicked, the menu closes
+    addLinkEventListeners() {
+        this.navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              mobileNavMenu.toggleDisplayMenu(false);
+            });
+        });
+    },
 }
 
-function removeNavMenu() {
-  mobileNav.style.display = "none";
-  mobileNavBtn.removeEventListener("click", removeNavMenu);
-  mobileNavBtn.addEventListener("click", displayNavMenu);
+//Reveals sections of the page as the user scrolls towards them
+const sectionRevealer = {
+    allSections: document.querySelectorAll(".section"),
+
+    //Callback for the intersection observer
+    obsCallback (entries, observer) {
+        const [entry] = entries;
+
+        if (!entry.isIntersecting) return;
+      
+        //removes the class which hides the section, revealing the section
+        entry.target.classList.remove("section--hidden");
+        //removes the intersection observer from the section, making it one time use only
+        observer.unobserve(entry.target);
+    },
+
+    executeObserver () {
+        let obsOptions = {root: null, threshold: 0.15};
+
+        const sectionObserver = new IntersectionObserver(this.obsCallback, obsOptions);
+          
+        this.allSections.forEach(function (section) {
+            sectionObserver.observe(section);
+            //Adds the class which hides the section from the page
+            section.classList.add("section--hidden");
+          });
+    },
 }
 
-mobileNavLinks.forEach(function (mov) {
-  mov.addEventListener("click", function () {
-    mobileNav.style.display = "none";
-  });
-});
+//Initializes the script
+function init() {
+    stickyNavObserver.executeObserver();
+    mobileNavMenu.addLinkEventListeners();
 
-mobileNavBtn.addEventListener("click", displayNavMenu);
+    mobileNavMenu.menuToggleBtn.addEventListener("click", mobileNavMenu.displayMenu);
+    sectionRevealer.executeObserver();
+}
 
-//////////Scrolling Elements//////////
-
-const allSections = document.querySelectorAll(".section");
-
-const revealSection = function (entries, observer) {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-
-  entry.target.classList.remove("section--hidden");
-  observer.unobserve(entry.target);
-};
-
-const sectionObserver = new IntersectionObserver(revealSection, {
-  root: null,
-  threshold: 0.15,
-});
-
-allSections.forEach(function (section) {
-  sectionObserver.observe(section);
-  section.classList.add("section--hidden");
-});
-
-//////////Nav Bar: Active Link Highlighting//////////
-
-// const highlightNavLink = function(entries) {
-//   const [entry] = entries;
-//   console.log(entry);
-//   console.log(entry.target.id);
-//
-//   if (entry.isIntersecting) document.querySelector(`.${entry.target.id}`).classList.add('nav__link-active');
-//   else document.querySelector(`.${entry.target.id}`).classList.remove('nav__link-active');
-// };
-//
-// const navLinkObserver = new IntersectionObserver(highlightNavLink, obsOptions);
-//
-// navLinkObserver.observe(header);
-// navLinkObserver.observe(about);
-// navLinkObserver.observe(projects);
-// navLinkObserver.observe(contact);
-
-// const headerCoord = header.getBoundingClientRect();
-// const aboutCoord = aboutSection.getBoundingClientRect();
-// const projectsCoord = projectsSection.getBoundingClientRect();
-// const contactCoord = contactSection.getBoundingClientRect();
-//
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY);
-//   if(window.scrollY > headerCoord.top && window.scrollY < aboutCoord.top) {
-//     homeLink.classList.add('nav__link-active');
-//     aboutLink.classList.remove('nav__link-active');
-//   } else if(window.scrollY > aboutCoord.top && window.scrollY < projectsCoord.top) {
-//     homeLink.classList.remove('nav__link-active');
-//     aboutLink.classList.add('nav__link-active');
-//     projectsLink.classList.remove('nav__link-active');
-//   } else if(window.scrollY > projectsCoord.top && window.scrollY < contactCoord.top) {
-//     aboutLink.classList.remove('nav__link-active');
-//     projectsLink.classList.add('nav__link-active');
-//     contactLink.classList.remove('nav__link-active');
-//   } else if(window.scrollY > contactCoord.top) {
-//     projectsLink.classList.remove('nav__link-active');
-//     contactLink.classList.add('nav__link-active');
-//   }
-// });
-// console.log(aboutCoord.top);
-// console.log(projectsCoord.top);
-// console.log(contactCoord.top);
+init();
