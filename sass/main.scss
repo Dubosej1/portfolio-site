@@ -310,22 +310,25 @@ body {
 }
 
 ////////// Contact Section //////////@at-root
-.contact {
-    @include flex-define(column,flex-start ,center );
-
+#contact {
     background-image: linear-gradient(
         to right bottom,
-        rgba(13, 13, 13, 0.9),
-        rgba(13, 13, 13, 0.9)
+        rgba(13, 13, 13, 0.6),
+        rgba(13, 13, 13, 0.6)
       ),
       url("images/bg-milky-way-footer.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.contact {
+    @include flex-define(column,flex-start,center );
 
     &__title {
         @include h2-title-style;
         color: white;
 
         &-container {
-            text-align: center;
+            text-align: flex-start;
             margin-top: 2rem;
         }
     }
