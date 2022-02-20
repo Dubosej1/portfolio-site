@@ -102,10 +102,29 @@ const sectionRevealer = {
     },
 }
 
+const navBarCalculator = {
+    navBar: document.querySelector(".nav"),
+    navLogo: document.querySelector(".nav__logo"),
+    aboutSection: document.querySelector("#about"),
+    projectsSection: document.querySelector("#projects"),
+
+    get navBarHeight () {
+        let height = this.navBar.getBoundingClientRect().height;
+        return `${height}px`;
+    },
+
+    applySectionMarginsByNavBar () {
+        this.aboutSection.style.paddingTop = this.navBarHeight;
+        this.projectsSection.style.paddingTop = this.navBarHeight;
+    },
+}
+
 //Initializes the script
 function init() {
     stickyNavObserver.executeObserver();
     mobileNavMenu.addLinkEventListeners();
+
+    navBarCalculator.applySectionMarginsByNavBar();
 
     mobileNavMenu.addDisplayMenuEventListener();
     sectionRevealer.executeObserver();
