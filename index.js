@@ -17,8 +17,8 @@ const stickyNavObserver = {
         const [entry] = entries;
 
         //toggles adding the sticky class to the nav bar
-        if (!entry.isIntersecting) this.nav.classList.add("sticky");
-        else this.nav.classList.remove("sticky");
+        if (!entry.isIntersecting) stickyNavObserver.nav.classList.add("sticky");
+        else stickyNavObserver.nav.classList.remove("sticky");
     },
 
     executeObserver() {
@@ -32,24 +32,35 @@ const stickyNavObserver = {
 
 //Add functionality for the Mobile Nav Btn to toggle displaying the mobile nav menu
 const mobileNavMenu = {
-    menu: document.querySelector(".mobileNav"),
+    menu: document.querySelector(".mobile-nav"),
     menuToggleBtn: document.querySelector(".btn__mobile-nav"),
     navLinks: Array.from(document.querySelectorAll(".mobile-nav__link")),
+    
 
     displayMenu (e) {
         this.toggleDisplayMenu(true);
-        this.menuToggleBtn.removeEventListener("click", this.displayMenu);
-        this.menuToggleBtn.addEventListener("click", this.removeMenu);
+
+        this.menuToggleBtn.removeEventListener("click", this.displayMenuClbk);
+
+        this.removeMenuClbk = this.removeMenu.bind(this);
+        this.menuToggleBtn.addEventListener("click", this.removeMenuClbk);
     },
 
     removeMenu(e) {
         this.toggleDisplayMenu(false);
-        this.menuToggleBtn.removeEventListener("click", this.removeMenu);
-        this.menuToggleBtn.addEventListener("click", this.displayMenu);
+
+        this.menuToggleBtn.removeEventListener("click", this.removeMenuClbk);
+        this.addDisplayMenuEventListener();
     },
 
     toggleDisplayMenu(toggle) {
         toggle ? this.menu.classList.remove(`display-none`) : this.menu.classList.add(`display-none`);
+    },
+
+    addDisplayMenuEventListener() {
+        this.displayMenuClbk = this.displayMenu.bind(this);
+
+        this.menuToggleBtn.addEventListener("click", this.displayMenuClbk);
     },
 
     //Adds Event Listeners so that when a mobile nav link is clicked, the menu closes
@@ -96,7 +107,7 @@ function init() {
     stickyNavObserver.executeObserver();
     mobileNavMenu.addLinkEventListeners();
 
-    mobileNavMenu.menuToggleBtn.addEventListener("click", mobileNavMenu.displayMenu);
+    mobileNavMenu.addDisplayMenuEventListener();
     sectionRevealer.executeObserver();
 }
 
