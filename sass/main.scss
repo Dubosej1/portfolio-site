@@ -140,16 +140,19 @@ body {
 ///////// Mobile Nav Section ////////
 
 .mobile-nav {
-    display: none;
+    display: block;
 
     position: fixed;
     background-color: black;
-    height: 60vw;
-    width: 100vw;
+    height: 20%;
+    width: 100%;
     z-index: 1;
-    padding-top: 40px;
+    padding-top: 6rem;
 
     &__link {
+        &-container {
+            @include flex-define(row,space-around ,center );
+        }
         font-family: "Istok Web";
         font-weight: 400;
         text-decoration: none;
@@ -243,7 +246,7 @@ body {
         &-container {
             @include grid-item-define(1, -1, 1, 2);
             text-align: center;
-            margin-top: 2rem;
+            // margin-top: 2rem;
         }
     }
 
@@ -286,8 +289,8 @@ body {
         &-container {
             width: 100%;
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
+            // margin-top: 2rem;
+            // padding-top: 1rem;
         }
     }
 
