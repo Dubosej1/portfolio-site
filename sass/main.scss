@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+  
+body {
+    font-family: "Average", serif;
+    font-weight: 400;
+    font-size: 1.6em;
+    line-height: 1.7;
+    color: #5f5f5f;
+}
+
+#header {
+    width: 100vw;
+    height: 95vh;
+    position: relative;
+
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(13, 13, 13, 0.5),
+        rgba(13, 13, 13, 0.5)
+      ),
+      url("images/bg-milky-way.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #f2f2f2;
+}
+
+.header {
+    &__container {
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-60%, -50%);
+    }
+
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    &__link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 2.5rem;
+    }
+
+    &__link {
+        margin: 1rem 0;
+        background: none;
+        font-family: "Average";
+        border: 3px solid #b875bf;
+        color: white;
+        padding: 0.3em;
+        //font-size: 18px
+        font-size: 1.1em;
+        white-space: nowrap;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.mobile-nav {
+    display:none;
+}
+
+.btn__mobile-nav {
+    display:none;
+}
