@@ -157,14 +157,17 @@ body {
         font-weight: 400;
         text-decoration: none;
         display: block;
-        padding-top: 4.5%;
-        padding-left: 5%;
+        padding-top: 1%;
+        padding-left: 1%;
         color: #f2f2f2;
     }
 }
 
 .btn__mobile-nav {
     display:none;
+
+    border: 3px solid #b875bf;
+    border-radius: 3px;
 
     float: right;
     width: 6rem;

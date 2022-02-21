@@ -105,6 +105,7 @@ const sectionRevealer = {
 const navBarCalculator = {
     navBar: document.querySelector(".nav"),
     navLogo: document.querySelector(".nav__logo"),
+    mobileNavMenu: document.querySelector(".mobile-nav"),
     aboutSection: document.querySelector("#about"),
     projectsSection: document.querySelector("#projects"),
 
@@ -114,10 +115,14 @@ const navBarCalculator = {
     },
 
     applySectionMarginsByNavBar () {
-        let paddingValue = `calc(${this.navBarHeight} + 0.25rem`;
+        let paddingValue = `calc(${this.navBarHeight} + 0.25rem)`;
         this.aboutSection.style.paddingTop = paddingValue;
         this.projectsSection.style.paddingTop = paddingValue;
     },
+
+    calcMobileNavMenuHeightByNavBar () {
+        this.mobileNavMenu.style.paddingTop = `calc(${this.navBarHeight} + 0.5rem)`;
+    }
 }
 
 //Initializes the script
@@ -126,6 +131,7 @@ function init() {
     mobileNavMenu.addLinkEventListeners();
 
     navBarCalculator.applySectionMarginsByNavBar();
+    navBarCalculator.calcMobileNavMenuHeightByNavBar();
 
     mobileNavMenu.addDisplayMenuEventListener();
     sectionRevealer.executeObserver();
