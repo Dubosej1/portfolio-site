@@ -114,8 +114,9 @@ const navBarCalculator = {
     },
 
     applySectionMarginsByNavBar () {
-        this.aboutSection.style.paddingTop = this.navBarHeight;
-        this.projectsSection.style.paddingTop = this.navBarHeight;
+        let paddingValue = `calc(${this.navBarHeight} + 0.25rem`;
+        this.aboutSection.style.paddingTop = paddingValue;
+        this.projectsSection.style.paddingTop = paddingValue;
     },
 }
 
