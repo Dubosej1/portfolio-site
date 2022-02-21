@@ -102,6 +102,7 @@ const sectionRevealer = {
     },
 }
 
+//Calculates and applies various CSS values by the Nav Bar dimensions
 const navBarCalculator = {
     navBar: document.querySelector(".nav"),
     navLogo: document.querySelector(".nav__logo"),
@@ -114,12 +115,16 @@ const navBarCalculator = {
         return `${height}px`;
     },
 
+    //Calculates the padding-top value of certain sections, so that the sticky nav bar...
+    //isn't blocking the section titles
     applySectionMarginsByNavBar () {
         let paddingValue = `calc(${this.navBarHeight} + 0.25rem)`;
         this.aboutSection.style.paddingTop = paddingValue;
         this.projectsSection.style.paddingTop = paddingValue;
     },
 
+    //Calculates the padding-top value of the mobile nav menu, so that it's not to large...
+    //and blocking the page elements
     calcMobileNavMenuHeightByNavBar () {
         this.mobileNavMenu.style.paddingTop = `calc(${this.navBarHeight} + 0.5rem)`;
     }
