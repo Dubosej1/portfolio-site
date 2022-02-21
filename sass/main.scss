@@ -239,6 +239,7 @@ body {
     grid-template-rows: auto auto;
     column-gap: 3rem;
     row-gap: 2rem;
+    padding-bottom: 2rem;
 
     &__title {
         @include h2-title-style;
@@ -468,6 +469,38 @@ body {
     .contact__link {
         margin: 0.5rem 1rem;
 
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    html {
+        font-size: 50%;
+    }
+
+    .projects {
+        &__card {
+            &-img {
+                width: 25rem;
+            }
+        }
+        &__btn {
+            &-container {
+                display: flex;
+                flex: nowrap;
+            }
+            &-live {
+            margin: 0 1rem 0 0;
+            }
+            &-code {
+            margin: 0 0 0 1rem;
+            }
+        }
+    }
+
+    .contact {
+        &__link {
+            width: 4rem;
+        }
     }
 }
 
