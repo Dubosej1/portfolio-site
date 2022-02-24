@@ -1,0 +1,427 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Average", serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 1.7;
+  color: #5f5f5f;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(13, 13, 13, 0.2);
+  /* overflow: hidden; */
+  z-index: 2;
+}
+.nav__logo {
+  font-family: "Istok Web";
+  font-weight: 700;
+  color: #b875bf;
+  font-size: 2.5em;
+  background-color: black;
+  padding: 1rem;
+  margin-left: 5rem;
+  float: left;
+  z-index: 2;
+}
+.nav__links-container {
+  float: right;
+  padding-top: 1rem;
+}
+.nav__link {
+  font-family: "Istok Web";
+  font-weight: 700;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 1.4rem 1.6rem;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.sticky {
+  position: fixed;
+  background-color: rgba(13, 13, 13, 0.9);
+}
+
+.nav__link:hover,
+.mobile-nav__link:hover {
+  color: #b875bf;
+}
+
+.mobile-nav {
+  display: block;
+  position: fixed;
+  background-color: black;
+  height: 20%;
+  width: 100%;
+  z-index: 1;
+  padding-top: 6rem;
+}
+.mobile-nav__link {
+  font-family: "Istok Web";
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+  padding-top: 1%;
+  padding-left: 1%;
+  color: #f2f2f2;
+}
+.mobile-nav__link-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn__mobile-nav {
+  display: none;
+  border: 3px solid #b875bf;
+  border-radius: 3px;
+  float: right;
+  width: 6rem;
+  margin: 1.1rem 1.7rem;
+  z-index: 1;
+  background-image: radial-gradient(circle at center, white 0, white, transparent 100%);
+}
+
+#header {
+  width: 100vw;
+  height: 95vh;
+  position: relative;
+  background-image: linear-gradient(to right bottom, rgba(13, 13, 13, 0.5), rgba(13, 13, 13, 0.5)), url("images/bg-milky-way.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #f2f2f2;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+}
+.header__title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+}
+.header__link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2.5rem;
+}
+.header__link {
+  margin: 1rem 0;
+  background: none;
+  font-family: "Average";
+  border: 3px solid #b875bf;
+  color: white;
+  padding: 0.3em;
+  font-size: 1.1em;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  column-gap: 3rem;
+  row-gap: 2rem;
+  padding-bottom: 2rem;
+}
+.about__title {
+  font-family: "Istok Web";
+  font-size: 2.5em;
+  color: #0d0a0b;
+}
+.about__title-container {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+}
+.about__text-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: -1;
+  margin-left: 2rem;
+}
+.about__greeting, .about__skills-heading {
+  font-family: "Istok Web";
+  font-size: 1.5em;
+  color: #b875bf;
+}
+.about__skills-container {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: -1;
+}
+.about__skills-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 40rem;
+}
+.about__skill {
+  display: inline-block;
+  background-color: #bfb188;
+  color: #333;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 1rem 1.5rem;
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+.projects {
+  background-color: #f1f1f1;
+}
+.projects__title {
+  font-family: "Istok Web";
+  font-size: 2.5em;
+  color: #0d0a0b;
+}
+.projects__title-container {
+  width: 100%;
+  text-align: center;
+}
+.projects__card {
+  text-align: center;
+  background-color: white;
+  flex: 0 0;
+  margin: 0 2% 2% 2%;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0.3rem 0.3rem 1.5rem;
+}
+.projects__card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.projects__card-title {
+  font-family: "Istok Web";
+  font-size: 1.5em;
+  color: #b875bf;
+}
+.projects__card-img {
+  width: 35rem;
+}
+.projects__card-text {
+  text-align: left;
+  margin-bottom: 10%;
+}
+.projects__skills-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+.projects__skill {
+  display: inline-block;
+  background-color: #bfb188;
+  color: #333;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+.projects__btn-live {
+  background: none;
+  border: 3px solid #b875bf;
+  border-radius: 20px;
+  font-size: 1.125em;
+  font-family: "Istok Web";
+  font-weight: 700;
+  color: black;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 1rem;
+  margin: 0 2rem 0 0;
+}
+.projects__btn-code {
+  background: none;
+  border: 3px solid #b875bf;
+  border-radius: 20px;
+  font-size: 1.125em;
+  font-family: "Istok Web";
+  font-weight: 700;
+  color: black;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 1rem;
+  margin: 0 0 0 2rem;
+}
+
+#contact {
+  background-image: linear-gradient(to right bottom, rgba(13, 13, 13, 0.6), rgba(13, 13, 13, 0.6)), url("images/bg-milky-way-footer.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contact__title {
+  font-family: "Istok Web";
+  font-size: 2.5em;
+  color: #0d0a0b;
+  color: white;
+}
+.contact__title-container {
+  text-align: flex-start;
+  margin-top: 2rem;
+}
+.contact__link {
+  width: 5rem;
+  margin: 0.5rem 3rem;
+}
+.contact__links-container {
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 560px) {
+  .nav__links-container {
+    display: none;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+
+  .btn__mobile-nav {
+    display: inline-block;
+  }
+
+  .header__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 30%;
+    left: 0;
+    transform: none;
+  }
+  .header__title-container {
+    width: 100;
+  }
+  .header__link:first-child {
+    margin: 0 2.5rem 0 0;
+  }
+  .header__link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .about {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+  }
+  .about__greeting {
+    text-align: center;
+  }
+  .about__title-container {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .about__text-container {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .about__skills-container {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 3;
+    grid-row-end: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about__skills-list {
+    justify-content: center;
+  }
+
+  .projects__card {
+    margin: 2rem 0 2rem 0;
+    width: 50rem;
+  }
+  .projects__card-img {
+    width: 28rem;
+  }
+
+  .contact__link {
+    margin: 0.5rem 1rem;
+  }
+}
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 50%;
+  }
+
+  .projects__card-img {
+    width: 25rem;
+  }
+  .projects__btn-container {
+    display: flex;
+    flex: nowrap;
+  }
+  .projects__btn-live {
+    margin: 0 1rem 0 0;
+  }
+  .projects__btn-code {
+    margin: 0 0 0 1rem;
+  }
+
+  .contact__link {
+    width: 4rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
