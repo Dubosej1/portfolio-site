@@ -101,7 +101,7 @@ body {
 }
 
 #header {
-  width: 100vw;
+  width: 100%;
   height: 95vh;
   position: relative;
   background-image: linear-gradient(to right bottom, rgba(13, 13, 13, 0.5), rgba(13, 13, 13, 0.5)), url("images/bg-milky-way.jpg");
@@ -149,7 +149,7 @@ body {
 
 .about {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   column-gap: 3rem;
   row-gap: 2rem;

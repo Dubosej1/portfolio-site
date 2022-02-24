@@ -184,7 +184,7 @@ body {
 ////////// Header Section //////////
 
 #header {
-    width: 100vw;
+    width: 100%;
     height: 95vh;
     position: relative;
 
@@ -238,7 +238,7 @@ body {
 
 .about {
     display:grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     column-gap: 3rem;
     row-gap: 2rem;
