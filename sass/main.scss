@@ -257,6 +257,7 @@ body {
     &__text-container {
         @include grid-item-define(1, 2, 2, -1);
         margin-left: 2rem;
+        max-width: 50vw;
     }
 
     &__greeting,
@@ -268,6 +269,8 @@ body {
         &-container {
         @include grid-item-define(2, -1, 2, -1);
         }
+
+        // width: 75%;
 
         &-list {
             list-style-type: none;
