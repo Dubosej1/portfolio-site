@@ -294,7 +294,7 @@ body {
         &-container {
             width: 100%;
             text-align: center;
-            // margin-top: 2rem;
+            margin-bottom: 2rem;
             // padding-top: 1rem;
         }
     }
@@ -312,7 +312,7 @@ body {
         box-shadow: 0.3rem 0.3rem 1.5rem;
 
         &-container {
-            @include flex-define (row, space-around, center);
+            @include flex-define (row, space-around, flex-start);
             flex-wrap: wrap;
         }
 
